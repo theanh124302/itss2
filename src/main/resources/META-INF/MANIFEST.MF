@@ -14,8 +14,8 @@ Class-Path: logback-classic-1.5.6.jar jboss-logging-3.5.3.Final.jar jaxb
  e-6.3.0.jar jackson-module-parameter-names-2.17.1.jar tomcat-embed-core
  -10.1.24.jar spring-context-6.1.8.jar jackson-annotations-2.17.1.jar ja
  karta.persistence-api-3.1.0.jar spring-boot-devtools-3.3.0.jar log4j-ap
- i-2.23.1.jar spring-boot-starter-json-3.3.0.jar spring-security-crypto-
- 6.3.0.jar micrometer-observation-1.13.0.jar tomcat-embed-websocket-10.1
+ i-2.23.1.jar spring-security-crypto-6.3.0.jar spring-boot-starter-json-
+ 3.3.0.jar micrometer-observation-1.13.0.jar tomcat-embed-websocket-10.1
  .24.jar logback-core-1.5.6.jar jakarta.activation-api-2.1.3.jar aspectj
  weaver-1.9.22.jar snakeyaml-2.2.jar spring-jdbc-6.1.8.jar txw2-4.0.5.ja
  r jul-to-slf4j-2.0.13.jar slf4j-api-2.0.13.jar byte-buddy-1.14.16.jar s

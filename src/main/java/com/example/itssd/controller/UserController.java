@@ -26,21 +26,23 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public void logout(@RequestParam String email) {
-        Long userId = userRepository.findByEmail(email).getId();
+    public void logout(@RequestParam Long userId) {
         userService.logOut(userId);
     }
 
     @GetMapping("/getFriends")
-    public List<User> getFriends(@RequestParam String email) {
-        Long userId = userRepository.findByEmail(email).getId();
+    public List<User> getFriends(@RequestParam Long userId) {
         return userService.getAllFriends(userId);
     }
 
     @GetMapping("/getAllMember")
-    public List<User> getAllMember(@RequestParam String email) {
-        Long userId = userRepository.findByEmail(email).getId();
+    public List<User> getAllMember(@RequestParam Long userId) {
         return userService.getRecommendFriends(userId);
+    }
+
+    @GetMapping("/loginById")
+    public User loginById(@RequestParam Long id) {
+        return userService.getUserById(id);
     }
 
 }
