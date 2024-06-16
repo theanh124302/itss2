@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Main-Class: com.example.itssd.ItssDApplication
+Class-Path: logback-classic-1.5.6.jar jboss-logging-3.5.3.Final.jar jaxb
+ -runtime-4.0.5.jar jackson-core-2.17.1.jar classmate-1.7.0.jar angus-ac
+ tivation-2.0.2.jar spring-data-commons-3.3.0.jar jackson-datatype-jsr31
+ 0-2.17.1.jar log4j-to-slf4j-2.23.1.jar tomcat-embed-el-10.1.24.jar antl
+ r4-runtime-4.13.0.jar HikariCP-5.1.0.jar spring-boot-starter-data-jpa-3
+ .3.0.jar spring-boot-starter-security-3.3.0.jar spring-boot-starter-jdb
+ c-3.3.0.jar spring-boot-starter-3.3.0.jar spring-core-6.1.8.jar mysql-c
+ onnector-j-8.3.0.jar spring-boot-starter-logging-3.3.0.jar jackson-data
+ bind-2.17.1.jar jandex-3.1.2.jar spring-tx-6.1.8.jar spring-webmvc-6.1.
+ 8.jar spring-boot-3.3.0.jar spring-expression-6.1.8.jar spring-boot-aut
+ oconfigure-3.3.0.jar hibernate-core-6.5.2.Final.jar spring-security-cor
+ e-6.3.0.jar jackson-module-parameter-names-2.17.1.jar tomcat-embed-core
+ -10.1.24.jar spring-context-6.1.8.jar jackson-annotations-2.17.1.jar ja
+ karta.persistence-api-3.1.0.jar spring-boot-devtools-3.3.0.jar log4j-ap
+ i-2.23.1.jar spring-boot-starter-json-3.3.0.jar spring-security-crypto-
+ 6.3.0.jar micrometer-observation-1.13.0.jar tomcat-embed-websocket-10.1
+ .24.jar logback-core-1.5.6.jar jakarta.activation-api-2.1.3.jar aspectj
+ weaver-1.9.22.jar snakeyaml-2.2.jar spring-jdbc-6.1.8.jar txw2-4.0.5.ja
+ r jul-to-slf4j-2.0.13.jar slf4j-api-2.0.13.jar byte-buddy-1.14.16.jar s
+ pring-boot-starter-web-3.3.0.jar hibernate-commons-annotations-6.0.6.Fi
+ nal.jar jakarta.inject-api-2.0.1.jar spring-jcl-6.1.8.jar istack-common
+ s-runtime-4.1.2.jar spring-data-jpa-3.3.0.jar spring-boot-starter-aop-3
+ .3.0.jar spring-web-6.1.8.jar jaxb-core-4.0.5.jar spring-security-web-6
+ .3.0.jar jakarta.annotation-api-2.1.1.jar spring-boot-starter-tomcat-3.
+ 3.0.jar spring-aspects-6.1.8.jar micrometer-commons-1.13.0.jar jakarta.
+ transaction-api-2.0.1.jar spring-security-config-6.3.0.jar lombok-1.18.
+ 32.jar jackson-datatype-jdk8-2.17.1.jar spring-orm-6.1.8.jar spring-bea
+ ns-6.1.8.jar spring-aop-6.1.8.jar jakarta.xml.bind-api-4.0.2.jar
+
