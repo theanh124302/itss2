@@ -54,16 +54,28 @@ public class UserService {
         return friends;
     }
 
+//    public User logIn() {
+//        Random random = new Random();
+//        User user = null;
+//        while (user == null || user.getStatus() == 1L) {
+//            Long id = 1L + random.nextInt(30); // Random id from 1 to 30
+//            user = userRepository.findById(id).orElse(null);
+//        }
+//        user.setStatus(1L);
+//        userRepository.save(user);
+//        return user;
+//    }
+
     public User logIn() {
-        Random random = new Random();
-        User user = null;
-        while (user == null || user.getStatus() == 1L) {
-            Long id = 1L + random.nextInt(30); // Random id from 1 to 30
-            user = userRepository.findById(id).orElse(null);
+        List<User> availableUsers = userRepository.findByStatus(0L);
+        if (availableUsers.isEmpty()) {
+            return null;
         }
-        user.setStatus(1L);
-        userRepository.save(user);
-        return user;
+        Random random = new Random();
+        User chosenUser = availableUsers.get(random.nextInt(availableUsers.size()));
+        chosenUser.setStatus(1L);
+        userRepository.save(chosenUser);
+        return chosenUser;
     }
 
     public void logOut(Long id) {
