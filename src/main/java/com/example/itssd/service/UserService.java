@@ -1,6 +1,7 @@
 package com.example.itssd.service;
 
 import com.example.itssd.entity.FriendShip;
+import com.example.itssd.entity.Resp;
 import com.example.itssd.entity.User;
 import com.example.itssd.repository.FriendShipRepository;
 import com.example.itssd.repository.UserRepository;
@@ -50,7 +51,6 @@ public class UserService {
         for (FriendShip friendShip : receivedFriendShips) {
             friends.add(userRepository.findById(friendShip.getSenderId()).orElse(null));
         }
-        friends.removeIf(Objects::isNull);
         return friends;
     }
 
@@ -86,20 +86,31 @@ public class UserService {
         }
     }
 
-    public List<User> getRecommendFriends(Long userId) {
+    public Resp getRecommendFriends(Long userId) {
+        Resp resp = new Resp();
         List<User> recommendFriends = new ArrayList<>();
-        List<User> allUsers = userRepository.findAll();
-        List<User> friends = getAllFriends(userId);
+        List<User> friends = new ArrayList<>();
         User currentUser = userRepository.findById(userId).orElse(null);
         if (currentUser == null) {
-            return recommendFriends;
+            return resp;
         }
+        List<FriendShip> sentFriendShips = friendShipRepository.findBySenderIdAndStatus(userId, 1L);
+        List<FriendShip> receivedFriendShips = friendShipRepository.findByReceiverIdAndStatus(userId, 1L);
+        for (FriendShip friendShip : sentFriendShips) {
+            friends.add(userRepository.findById(friendShip.getReceiverId()).orElse(null));
+        }
+        for (FriendShip friendShip : receivedFriendShips) {
+            friends.add(userRepository.findById(friendShip.getSenderId()).orElse(null));
+        }
+        resp.setFriends(friends);
         String currentUserMbti = currentUser.getMbti();
-        for (User user : allUsers) {
+        List<User> equalMbtiUsers = getUsersByMbti(currentUserMbti);
+        for (User user : equalMbtiUsers) {
             if (!friends.contains(user) && !user.getId().equals(userId) && user.getMbti().equals(currentUserMbti)) {
                 recommendFriends.add(user);
             }
         }
-        return recommendFriends;
+        resp.setRecommendFriends(recommendFriends);
+        return resp;
     }
 }

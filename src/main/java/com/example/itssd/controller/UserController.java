@@ -1,5 +1,6 @@
 package com.example.itssd.controller;
 
+import com.example.itssd.entity.Resp;
 import com.example.itssd.entity.User;
 import com.example.itssd.repository.UserRepository;
 import com.example.itssd.service.UserService;
@@ -36,7 +37,7 @@ public class UserController {
     }
 
     @GetMapping("/getAllMember")
-    public List<User> getAllMember(@RequestParam Long userId) {
+    public Resp getAllMember(@RequestParam Long userId) {
         return userService.getRecommendFriends(userId);
     }
 
