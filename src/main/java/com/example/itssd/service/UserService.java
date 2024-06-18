@@ -89,22 +89,14 @@ public class UserService {
     public Resp getRecommendFriends(Long userId) {
         Resp resp = new Resp();
         List<User> recommendFriends = new ArrayList<>();
-        List<User> friends = new ArrayList<>();
         User currentUser = userRepository.findById(userId).orElse(null);
         if (currentUser == null) {
             return resp;
         }
-        List<FriendShip> sentFriendShips = friendShipRepository.findBySenderIdAndStatus(userId, 1L);
-        List<FriendShip> receivedFriendShips = friendShipRepository.findByReceiverIdAndStatus(userId, 1L);
-        for (FriendShip friendShip : sentFriendShips) {
-            friends.add(userRepository.findById(friendShip.getReceiverId()).orElse(null));
-        }
-        for (FriendShip friendShip : receivedFriendShips) {
-            friends.add(userRepository.findById(friendShip.getSenderId()).orElse(null));
-        }
+        List<User> friends = userRepository.findFriends(userId);
         resp.setFriends(friends);
         String currentUserMbti = currentUser.getMbti();
-        List<User> equalMbtiUsers = getUsersByMbti(currentUserMbti);
+        List<User> equalMbtiUsers = userRepository.findByMbti(currentUserMbti);
         for (User user : equalMbtiUsers) {
             if (!friends.contains(user) && !user.getId().equals(userId) && user.getMbti().equals(currentUserMbti)) {
                 recommendFriends.add(user);
